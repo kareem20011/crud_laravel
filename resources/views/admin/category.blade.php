@@ -9,7 +9,7 @@
     <label for="exampleFormControlInput1" class="form-label">Name</label>
     <input type="text" name="name" class="form-control" id="exampleFormControlInput1" >
     </div>
-  
+
     <button class="btn btn-primary" type="submit">Save</button>
     </form>
 
@@ -17,6 +17,8 @@
     <table class="table table-border">
         <tr>
             <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach($items as $item)
             <tr>

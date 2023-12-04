@@ -28,6 +28,7 @@ class Productcontroller extends Controller
         $colors = Color::all();
         $cats = Category::all();
         $products = Product::with('get_category')->get();
+        // return $products;
         return view('admin.product')->with(['items'=>$products,'cats'=>$cats,'colors'=>$colors]);
 
     }
@@ -114,7 +115,6 @@ class Productcontroller extends Controller
                 'price'=>$request->price,
                 'img'=>$file_name,
             ]);
-
             $product = Product::find($request->id);
             $product->get_color()->sync($request->color_id);
         }else{

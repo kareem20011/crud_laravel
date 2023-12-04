@@ -59,7 +59,8 @@ class Colorcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $colors = Color::find($id);
+        return view('admin.color_edit')->with('colors',$colors);
     }
 
     /**
@@ -71,7 +72,8 @@ class Colorcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Color::where('id',$id)->update(['name'=>$request->name]);
+        return redirect('color');
     }
 
     /**

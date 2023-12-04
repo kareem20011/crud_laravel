@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\Productcontroller;
 use App\Http\Controllers\admin\Categorycontroller;
 use App\Http\Controllers\admin\Colorcontroller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -40,12 +41,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('category', [Categorycontroller::class, 'index']);
     Route::post('category_store', [Categorycontroller::class, 'store']);
+    Route::get('category_edit/{id}', [Categorycontroller::class, 'edit']);
+    Route::post('category_update', [Categorycontroller::class, 'update']);
+    Route::get('category_delete/{id}', [Categorycontroller::class, 'destroy']);
 
     Route::get('color', [Colorcontroller::class, 'index']);
+    Route::get('color_edit/{id}', [Colorcontroller::class, 'edit']);
+    Route::post('color_update/{id}', [Colorcontroller::class, 'update']);
     Route::post('color_store', [Colorcontroller::class, 'store']);
     Route::get('color_delete/{id}', [Colorcontroller::class, 'destroy']);
 
-
+    Route::get('orders',[OrderController::class,'index']);
 
 
 });

@@ -9,7 +9,7 @@
     <label for="exampleFormControlInput1" class="form-label">Name</label>
     <input type="text" name="name" class="form-control" id="exampleFormControlInput1" >
     </div>
-   
+
     <button class="btn btn-primary" type="submit">Save</button>
     </form>
 
@@ -24,7 +24,7 @@
             <tr>
                 <td>{{$item->name}}</td>
 
-                <td><a href="{{URL('product_edit/'.$item->id)}}">Edit</a></td>
+                <td><a href="{{URL('color_edit/'.$item->id)}}">Edit</a></td>
 
                 <td><a href="{{URL('color_delete/'.$item->id)}}">Delete</a></td>
             </tr>

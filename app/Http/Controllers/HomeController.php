@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Sales_order;
@@ -51,7 +52,7 @@ class HomeController extends Controller
 
     public function check_out(Request $request){
         for ($i=0; $i < count($request->quantity); $i++) {
-            Sales_order::create([
+            Order::create([
                 'user_id'=>Auth::user()->id,
                 'product_id'=>$request->id[$i],
                 'quantity'=>$request->quantity[$i],

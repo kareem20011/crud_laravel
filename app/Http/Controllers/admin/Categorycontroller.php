@@ -59,7 +59,9 @@ class Categorycontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $cats = Category::find($id);
+        // return $cats;
+        return view('admin.category_edit')->with('cats',$cats);
     }
 
     /**
@@ -69,9 +71,12 @@ class Categorycontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Category::where('id',$request->id)->update([
+            'name'=>$request->name,
+        ]);
+        return redirect('category');
     }
 
     /**
@@ -82,6 +87,7 @@ class Categorycontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::where('id',$id)->delete();
+        return redirect()->back();
     }
 }
